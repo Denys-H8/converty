@@ -35,7 +35,6 @@ Temporary Items
 *.log
 logs
 **/*.backup.*
-**/*.back.*
 
 node_modules
 bower_components
@@ -66,21 +65,6 @@ sketch
 .ionide
 
 # Support for Project snippet scope
-
-### Web ###
-*.asp
-*.cer
-*.csr
-*.css
-*.htm
-*.html
-*.js
-*.jsp
-*.php
-*.rss
-*.wasm
-*.wat
-*.xhtml
 
 ### Windows ###
 # Windows thumbnail cache files
