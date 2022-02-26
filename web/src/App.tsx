@@ -1,6 +1,6 @@
 import React, {memo, useMemo} from 'react';
 import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
-import NavBar from './components/NavBar';
+import SideMenu from './components/SideMenu';
 import Converter from './pages/Converter';
 import Exchange from './pages/Exchange';
 import {Routes as RoutesList} from './navigation/routes';
@@ -19,7 +19,7 @@ const App: React.FC = () => {
   return (
     <Flex h="100vh" w="100vw">
       <BrowserRouter>
-        <NavBar />
+        <SideMenu />
 
         <Routes>
           <Route path={RoutesList.Exchange} element={ExchangePage} />
