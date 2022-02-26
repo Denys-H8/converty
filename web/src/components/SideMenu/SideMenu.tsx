@@ -1,8 +1,7 @@
 import React, {memo, useCallback} from 'react';
 import {VStack} from '@chakra-ui/react';
-import {Link} from 'react-router-dom';
 import MenuHeader from './MenuHeader';
-import {Routes} from '../navigation/routes';
+import MenuItems from './MenuItems';
 
 const SideMenu: React.FC = () => {
   const onExpand = useCallback<() => void>(() => {
@@ -10,11 +9,9 @@ const SideMenu: React.FC = () => {
   }, []);
 
   return (
-    <VStack flex={0.2}>
+    <VStack flex={0.15} p="42" backgroundColor="#F5F5F5">
       <MenuHeader onExpand={onExpand} />
-
-      <Link to={Routes.Exchange}>Exchange</Link>
-      <Link to={Routes.Converter}>Convert</Link>
+      <MenuItems />
     </VStack>
   );
 };

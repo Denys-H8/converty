@@ -1,6 +1,6 @@
 import React, {memo, useMemo} from 'react';
 import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
-import SideMenu from './components/SideMenu';
+import SideMenu from './components/SideMenu/SideMenu';
 import Converter from './pages/Converter';
 import Exchange from './pages/Exchange';
 import {Routes as RoutesList} from './navigation/routes';
