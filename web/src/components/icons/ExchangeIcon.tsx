@@ -11,9 +11,9 @@ const ExchangeIcon: React.FC<ExchangeIconProps> = ({isActive, ...props}) => {
   );
 
   return (
-    <svg width={24} height={24} fill="none" {...props}>
+    <svg width={32} height={32} fill="none" {...props}>
       <path
-        d="M9 17h10M5 17h.002v.002H5V17ZM9 12h10M5 12h.002v.002H5V12ZM9 7h10M5 7h.002v.002H5V7Z"
+        d="M12 22.667h13.333M6.667 22.667h.002v.002h-.002v-.002ZM12 16h13.333M6.667 16h.002v.003h-.002V16ZM12 9.333h13.333M6.667 9.333h.002v.003h-.002v-.003Z"
         stroke={color}
         strokeWidth={2}
         strokeLinecap="round"

@@ -12,24 +12,24 @@ const SvgComponent: React.FC<SvhProps> = ({isActive, ...props}) => {
   );
 
   return (
-    <svg width={24} height={24} fill="none" {...props}>
+    <svg width={32} height={32} fill="none" {...props}>
       <path
-        d="M10 17a1 1 0 1 0 0-2v2Zm-5-1v-1a1 1 0 0 0-1 1h1Zm-1 5a1 1 0 1 0 2 0H4Zm6-6H5v2h5v-2Zm-6 1v5h2v-5H4Z"
+        d="M13.333 22.333a1 1 0 0 0 0-2v2Zm-6.666-1v-1a1 1 0 0 0-1 1h1Zm-1 6.667a1 1 0 1 0 2 0h-2Zm7.666-7.667H6.667v2h6.666v-2Zm-7.666 1V28h2v-6.667h-2Z"
         fill={color}
       />
       <path
-        d="M19.418 14.997a8 8 0 0 1-14.332 1.027"
+        d="M25.89 19.996a10.666 10.666 0 0 1-19.109 1.37"
         stroke={color}
         strokeWidth={2}
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
-        d="M14 7a1 1 0 1 0 0 2V7Zm5 1v1a1 1 0 0 0 1-1h-1Zm1-5a1 1 0 1 0-2 0h2Zm-6 6h5V7h-5v2Zm6-1V3h-2v5h2Z"
+        d="M18.667 9.667a1 1 0 0 0 0 2v-2Zm6.666 1v1a1 1 0 0 0 1-1h-1Zm1-6.667a1 1 0 0 0-2 0h2Zm-7.666 7.667h6.666v-2h-6.666v2Zm7.666-1V4h-2v6.667h2Z"
         fill={color}
       />
       <path
-        d="M4.583 9.003a8 8 0 0 1 14.331-1.027"
+        d="M6.11 12.004a10.667 10.667 0 0 1 19.109-1.37"
         stroke={color}
         strokeWidth={2}
         strokeLinecap="round"

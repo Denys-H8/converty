@@ -21,7 +21,7 @@ const MenuHeader: React.FC<MenuHeaderProps> = ({onExpand}) => {
     <HStack mb="28">
       <HStack cursor="pointer" onClick={onLogoClick} mr={10}>
         <Logo />
-        <Text fontSize="xl" color="text.blue">
+        <Text fontSize="2xl" color="text.blue">
           {MenuLocales.AppName}
         </Text>
       </HStack>

@@ -43,10 +43,11 @@ const MenuItem: React.FC<MenuItemProps> = ({variant, onClick}) => {
       bg="bg.white"
       alignSelf="stretch"
       borderRadius={10}
-      sx={isActive ? styles.activeItem : styles.passiveItem}>
+      sx={isActive ? styles.activeItem : styles.passiveItem}
+      alignItems="center">
       <Box mr={4}>{Icon}</Box>
 
-      <Text fontSize={14} color={textColor}>
+      <Text fontSize={16} color={textColor}>
         {text}
       </Text>
     </HStack>
