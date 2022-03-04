@@ -1,23 +1,36 @@
 import {Box, ChakraProps, HStack, Text} from '@chakra-ui/react';
-import React, {memo, useMemo} from 'react';
+import React, {memo, useCallback, useMemo} from 'react';
+import {useLocation} from 'react-router-dom';
 import ExchangeIcon from '../icons/ExchangeIcon';
 import ConverterIcon from '../icons/ConverterIcon';
-import {MenuLocales} from '../../locales/menu';
+import {getPageName, getTabName} from '../../utils/tabs';
+import {Routes} from '../../navigation/routes';
 
 interface MenuItemProps {
-  text: MenuLocales;
+  variant: Routes;
   onClick: () => void;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({text, onClick}) => {
+const MenuItem: React.FC<MenuItemProps> = ({variant, onClick}) => {
+  const {pathname} = useLocation();
+
+  const isActive = useMemo<boolean>(
+    () => getPageName(pathname) === variant,
+    [variant, pathname],
+  );
+
   const Icon = useMemo<React.ReactNode>(() => {
-    switch (text) {
-      case MenuLocales.ConverterTab:
-        return <ConverterIcon />;
+    switch (variant) {
+      case Routes.Converter:
+        return <ConverterIcon isActive={isActive} />;
       default:
-        return <ExchangeIcon />;
+        return <ExchangeIcon isActive={isActive} />;
     }
-  }, [text]);
+  }, [variant, isActive]);
+
+  const text = getTabName(variant);
+
+  const textColor = isActive ? 'text.black' : 'text.gray';
 
   return (
     <HStack
@@ -27,21 +40,25 @@ const MenuItem: React.FC<MenuItemProps> = ({text, onClick}) => {
       pb="1.5"
       pl="6"
       pr="6"
-      backgroundColor="#fff"
+      bg="bg.white"
       alignSelf="stretch"
       borderRadius={10}
-      sx={styles.item}
-      mb={4}>
+      sx={isActive ? styles.activeItem : styles.passiveItem}>
       <Box mr={4}>{Icon}</Box>
 
-      <Text fontSize={14}>{text}</Text>
+      <Text fontSize={14} color={textColor}>
+        {text}
+      </Text>
     </HStack>
   );
 };
 
 const styles: Record<string, ChakraProps['sx']> = {
-  item: {
+  activeItem: {
     boxShadow: '0px 1px 4px rgba(0, 0, 0, 0.25)',
+  },
+  passiveItem: {
+    backgroundColor: 'transparent',
   },
 };
 

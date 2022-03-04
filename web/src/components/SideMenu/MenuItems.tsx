@@ -2,7 +2,6 @@ import React, {memo, useCallback} from 'react';
 import {VStack} from '@chakra-ui/react';
 import {useNavigate} from 'react-router-dom';
 import MenuItem from './MenuItem';
-import {MenuLocales} from '../../locales/menu';
 import {Routes} from '../../navigation/routes';
 
 const MenuItems: React.FC = () => {
@@ -17,9 +16,9 @@ const MenuItems: React.FC = () => {
   }, []);
 
   return (
-    <VStack alignItems="flex-start">
-      <MenuItem text={MenuLocales.ExchangeTab} onClick={onExchangeClick} />
-      <MenuItem text={MenuLocales.ConverterTab} onClick={onConverterClick} />
+    <VStack flex={1} alignItems="flex-start" spacing={5}>
+      <MenuItem variant={Routes.Exchange} onClick={onExchangeClick} />
+      <MenuItem variant={Routes.Converter} onClick={onConverterClick} />
     </VStack>
   );
 };
