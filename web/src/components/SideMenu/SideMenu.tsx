@@ -4,12 +4,8 @@ import MenuHeader from './MenuHeader';
 import MenuItems from './MenuItems';
 import CurrencySelect from './CurrencySelect';
 
-interface SideMenuProps {
-  options: string[];
-}
-
 // TODO: add expand animation
-const SideMenu: React.FC<SideMenuProps> = ({options}) => {
+const SideMenu: React.FC = () => {
   const [toggle, setToggle] = useState<boolean>(true);
 
   const onExpand = useCallback<() => void>(() => {
@@ -29,7 +25,7 @@ const SideMenu: React.FC<SideMenuProps> = ({options}) => {
       py="42">
       <MenuHeader onExpand={onExpand} toggle={toggle} />
       <MenuItems toggle={toggle} />
-      {toggle && <CurrencySelect options={options} />}
+      {toggle && <CurrencySelect />}
     </VStack>
   );
 };

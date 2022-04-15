@@ -32,7 +32,7 @@ const App: React.FC = () => {
   return (
     <Flex h="100vh" w="100vw">
       <BrowserRouter>
-        <SideMenu options={data} />
+        <SideMenu />
 
         <Routes>
           <Route element={ExchangePage} path={RoutesList.Exchange} />

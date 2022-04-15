@@ -2,22 +2,20 @@ import {Select} from '@chakra-ui/react';
 import React, {memo, useCallback, useContext, useMemo} from 'react';
 import {AppCtx} from '../../contexts/currencyContext';
 
-interface CurrencySelectProps {
-  options: string[];
-}
+const options = ['UAH', 'USD', 'EUR'];
 
-const CurrencySelect: React.FC<CurrencySelectProps> = ({options}) => {
+const CurrencySelect: React.FC = () => {
   const {state, dispatch} = useContext(AppCtx);
 
-  const Items = useMemo<JSX.Element[] | null>(() => {
-    if (!options || !options.length) return null;
-
-    return options.map((item) => (
-      <option key={item} value={item}>
-        {item}
-      </option>
-    ));
-  }, [options]);
+  const Items = useMemo<JSX.Element[] | null>(
+    () =>
+      options.map((item) => (
+        <option key={item} value={item}>
+          {item}
+        </option>
+      )),
+    [],
+  );
 
   const onChange = useCallback<React.ChangeEventHandler<HTMLSelectElement>>(
     (event) => {
