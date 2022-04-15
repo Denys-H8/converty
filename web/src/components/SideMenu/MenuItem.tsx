@@ -8,10 +8,11 @@ import {Routes} from '../../navigation/routes';
 
 interface MenuItemProps {
   variant: Routes;
+  fullSize: boolean;
   onClick: () => void;
 }
 
-const MenuItem: React.FC<MenuItemProps> = ({variant, onClick}) => {
+const MenuItem: React.FC<MenuItemProps> = ({variant, fullSize, onClick}) => {
   const {pathname} = useLocation();
 
   const isActive = useMemo<boolean>(
@@ -32,6 +33,8 @@ const MenuItem: React.FC<MenuItemProps> = ({variant, onClick}) => {
 
   const textColor = isActive ? 'text.black' : 'text.gray';
 
+  const iconMargin = fullSize ? 4 : 0;
+
   return (
     <HStack
       alignItems="center"
@@ -45,11 +48,13 @@ const MenuItem: React.FC<MenuItemProps> = ({variant, onClick}) => {
       pr="6"
       pt="1.5"
       sx={isActive ? styles.activeItem : styles.passiveItem}>
-      <Box mr={4}>{Icon}</Box>
+      <Box mr={iconMargin}>{Icon}</Box>
 
-      <Text color={textColor} fontSize={16}>
-        {text}
-      </Text>
+      {fullSize && (
+        <Text color={textColor} fontSize={16}>
+          {text}
+        </Text>
+      )}
     </HStack>
   );
 };

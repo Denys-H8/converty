@@ -4,7 +4,11 @@ import {useNavigate} from 'react-router-dom';
 import MenuItem from './MenuItem';
 import {Routes} from '../../navigation/routes';
 
-const MenuItems: React.FC = () => {
+interface MenuItemsProps {
+  toggle: boolean;
+}
+
+const MenuItems: React.FC<MenuItemsProps> = ({toggle}) => {
   const navigate = useNavigate();
 
   const onExchangeClick = useCallback<() => void>(() => {
@@ -17,8 +21,16 @@ const MenuItems: React.FC = () => {
 
   return (
     <VStack alignItems="flex-start" flex={1} spacing={5}>
-      <MenuItem onClick={onExchangeClick} variant={Routes.Exchange} />
-      <MenuItem onClick={onConverterClick} variant={Routes.Converter} />
+      <MenuItem
+        fullSize={toggle}
+        onClick={onExchangeClick}
+        variant={Routes.Exchange}
+      />
+      <MenuItem
+        fullSize={toggle}
+        onClick={onConverterClick}
+        variant={Routes.Converter}
+      />
     </VStack>
   );
 };

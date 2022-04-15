@@ -8,26 +8,37 @@ import {Routes} from '../../navigation/routes';
 
 interface MenuHeaderProps {
   onExpand: () => void;
+  toggle: boolean;
 }
 
-const MenuHeader: React.FC<MenuHeaderProps> = ({onExpand}) => {
+const logoStyle: React.CSSProperties = {transform: 'rotate(180deg)'};
+
+const MenuHeader: React.FC<MenuHeaderProps> = ({onExpand, toggle}) => {
   const navigate = useNavigate();
 
   const onLogoClick = useCallback<() => void>(() => {
     navigate(Routes.Exchange);
   }, [navigate]);
 
+  const expandStyle = toggle ? undefined : logoStyle;
+
   return (
     <HStack mb="28">
-      <HStack cursor="pointer" mr={10} onClick={onLogoClick}>
-        <Logo />
-        <Text color="text.blue" fontSize="2xl">
-          {MenuLocales.AppName}
-        </Text>
-      </HStack>
+      {toggle ? (
+        <HStack cursor="pointer" mr={10} onClick={onLogoClick}>
+          <Logo />
+          <Text color="text.blue" fontSize="2xl">
+            {MenuLocales.AppName}
+          </Text>
+        </HStack>
+      ) : (
+        <Box cursor="pointer" onClick={onLogoClick}>
+          <Logo />
+        </Box>
+      )}
 
       <Box cursor="pointer" onClick={onExpand}>
-        <ExpandIcon />
+        <ExpandIcon style={expandStyle} />
       </Box>
     </HStack>
   );
