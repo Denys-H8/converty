@@ -35,9 +35,9 @@ const App: React.FC = () => {
         <SideMenu options={data} />
 
         <Routes>
-          <Route path={RoutesList.Exchange} element={ExchangePage} />
-          <Route path={RoutesList.Converter} element={ConverterPage} />
-          <Route path={RoutesList.Any} element={InitialRedirect} />
+          <Route element={ExchangePage} path={RoutesList.Exchange} />
+          <Route element={ConverterPage} path={RoutesList.Converter} />
+          <Route element={InitialRedirect} path={RoutesList.Any} />
         </Routes>
       </BrowserRouter>
     </Flex>

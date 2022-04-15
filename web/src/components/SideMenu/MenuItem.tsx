@@ -1,5 +1,5 @@
 import {Box, ChakraProps, HStack, Text} from '@chakra-ui/react';
-import React, {memo, useCallback, useMemo} from 'react';
+import React, {memo, useMemo} from 'react';
 import {useLocation} from 'react-router-dom';
 import ExchangeIcon from '../icons/ExchangeIcon';
 import ConverterIcon from '../icons/ConverterIcon';
@@ -34,20 +34,20 @@ const MenuItem: React.FC<MenuItemProps> = ({variant, onClick}) => {
 
   return (
     <HStack
-      onClick={onClick}
+      alignItems="center"
+      alignSelf="stretch"
+      bg="bg.white"
+      borderRadius={10}
       cursor="pointer"
-      pt="1.5"
+      onClick={onClick}
       pb="1.5"
       pl="6"
       pr="6"
-      bg="bg.white"
-      alignSelf="stretch"
-      borderRadius={10}
-      sx={isActive ? styles.activeItem : styles.passiveItem}
-      alignItems="center">
+      pt="1.5"
+      sx={isActive ? styles.activeItem : styles.passiveItem}>
       <Box mr={4}>{Icon}</Box>
 
-      <Text fontSize={16} color={textColor}>
+      <Text color={textColor} fontSize={16}>
         {text}
       </Text>
     </HStack>

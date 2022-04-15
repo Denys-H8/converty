@@ -1,47 +1,45 @@
-import {memo} from 'react';
+import React, {memo} from 'react';
 
-const LoadingIcon = () => {
-  return (
-    <svg
-      version="1.1"
-      id="L9"
-      xmlns="http://www.w3.org/2000/svg"
-      enableBackground="new 0 0 0 0">
-      <rect x="20" y="50" width="8" height="30" fill="#0F4264">
-        <animateTransform
-          attributeType="xml"
-          attributeName="transform"
-          type="translate"
-          values="0 0; 0 20; 0 0"
-          begin="0"
-          dur="0.6s"
-          repeatCount="indefinite"
-        />
-      </rect>
-      <rect x="35" y="50" width="8" height="30" fill="#0F4264">
-        <animateTransform
-          attributeType="xml"
-          attributeName="transform"
-          type="translate"
-          values="0 0; 0 20; 0 0"
-          begin="0.2s"
-          dur="0.6s"
-          repeatCount="indefinite"
-        />
-      </rect>
-      <rect x="50" y="50" width="8" height="30" fill="#0F4264">
-        <animateTransform
-          attributeType="xml"
-          attributeName="transform"
-          type="translate"
-          values="0 0; 0 20; 0 0"
-          begin="0.4s"
-          dur="0.6s"
-          repeatCount="indefinite"
-        />
-      </rect>
-    </svg>
-  );
-};
+const LoadingIcon = () => (
+  <svg
+    enableBackground="new 0 0 0 0"
+    id="L9"
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg">
+    <rect fill="#0F4264" height="30" width="8" x="20" y="50">
+      <animateTransform
+        attributeName="transform"
+        attributeType="xml"
+        begin="0"
+        dur="0.6s"
+        repeatCount="indefinite"
+        type="translate"
+        values="0 0; 0 20; 0 0"
+      />
+    </rect>
+    <rect fill="#0F4264" height="30" width="8" x="35" y="50">
+      <animateTransform
+        attributeName="transform"
+        attributeType="xml"
+        begin="0.2s"
+        dur="0.6s"
+        repeatCount="indefinite"
+        type="translate"
+        values="0 0; 0 20; 0 0"
+      />
+    </rect>
+    <rect fill="#0F4264" height="30" width="8" x="50" y="50">
+      <animateTransform
+        attributeName="transform"
+        attributeType="xml"
+        begin="0.4s"
+        dur="0.6s"
+        repeatCount="indefinite"
+        type="translate"
+        values="0 0; 0 20; 0 0"
+      />
+    </rect>
+  </svg>
+);
 
 export default memo(LoadingIcon);

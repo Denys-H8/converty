@@ -9,16 +9,16 @@ const MenuItems: React.FC = () => {
 
   const onExchangeClick = useCallback<() => void>(() => {
     navigate(Routes.Exchange);
-  }, []);
+  }, [navigate]);
 
   const onConverterClick = useCallback<() => void>(() => {
     navigate(Routes.Converter);
-  }, []);
+  }, [navigate]);
 
   return (
-    <VStack flex={1} alignItems="flex-start" spacing={5}>
-      <MenuItem variant={Routes.Exchange} onClick={onExchangeClick} />
-      <MenuItem variant={Routes.Converter} onClick={onConverterClick} />
+    <VStack alignItems="flex-start" flex={1} spacing={5}>
+      <MenuItem onClick={onExchangeClick} variant={Routes.Exchange} />
+      <MenuItem onClick={onConverterClick} variant={Routes.Converter} />
     </VStack>
   );
 };

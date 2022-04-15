@@ -15,18 +15,18 @@ const MenuHeader: React.FC<MenuHeaderProps> = ({onExpand}) => {
 
   const onLogoClick = useCallback<() => void>(() => {
     navigate(Routes.Exchange);
-  }, []);
+  }, [navigate]);
 
   return (
     <HStack mb="28">
-      <HStack cursor="pointer" onClick={onLogoClick} mr={10}>
+      <HStack cursor="pointer" mr={10} onClick={onLogoClick}>
         <Logo />
-        <Text fontSize="2xl" color="text.blue">
+        <Text color="text.blue" fontSize="2xl">
           {MenuLocales.AppName}
         </Text>
       </HStack>
 
-      <Box onClick={onExpand} cursor="pointer">
+      <Box cursor="pointer" onClick={onExpand}>
         <ExpandIcon />
       </Box>
     </HStack>

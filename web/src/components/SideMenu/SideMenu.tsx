@@ -15,7 +15,7 @@ const SideMenu: React.FC<SideMenuProps> = ({options}) => {
   }, []);
 
   return (
-    <VStack flex={0.15} p="42" bg="bg.gray" justifyContent="space-between">
+    <VStack bg="bg.gray" flex={0.15} justifyContent="space-between" p="42">
       <MenuHeader onExpand={onExpand} />
       <MenuItems />
       <CurrencySelect options={options} />

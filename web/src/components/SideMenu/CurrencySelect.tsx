@@ -21,9 +21,9 @@ const CurrencySelect: React.FC<CurrencySelectProps> = ({options}) => {
 
   const onChange = useCallback<React.ChangeEventHandler<HTMLSelectElement>>(
     (event) => {
-      dispatch({type: 'update', payload: event.target.value});
+      dispatch({payload: event.target.value, type: 'update'});
     },
-    [],
+    [dispatch],
   );
 
   return (

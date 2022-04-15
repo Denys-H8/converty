@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Dispatch, useReducer} from 'react';
+import {Dispatch, useMemo, useReducer} from 'react';
 
 interface State {
   baseCurrency: string;
@@ -30,9 +30,15 @@ const reducer = (state: State, action: Action) => {
 const CurrencyContext: React.FC = ({children}) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  return (
-    <AppCtx.Provider value={{state, dispatch}}>{children}</AppCtx.Provider>
+  const providerValue = useMemo<ContextProps>(
+    () => ({
+      dispatch,
+      state,
+    }),
+    [dispatch, state],
   );
+
+  return <AppCtx.Provider value={providerValue}>{children}</AppCtx.Provider>;
 };
 
 export default CurrencyContext;

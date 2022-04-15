@@ -43,12 +43,12 @@ const useCurrency = () => {
     };
 
     fetchData();
-  }, []);
+  }, [state.baseCurrency]);
 
   return {
-    isLoading,
-    isError,
     data,
+    isError,
+    isLoading,
   };
 };
 
