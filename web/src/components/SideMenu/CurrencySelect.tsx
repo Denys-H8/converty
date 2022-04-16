@@ -1,20 +1,24 @@
 import {Select} from '@chakra-ui/react';
 import React, {memo, useCallback, useContext, useMemo} from 'react';
 import {AppCtx} from '../../contexts/currencyContext';
+import {useCurrencies} from '../../hooks/useCurrencies';
 
-const options = ['UAH', 'USD', 'EUR'];
-
+// TODO: handle error and loading
 const CurrencySelect: React.FC = () => {
   const {state, dispatch} = useContext(AppCtx);
 
+  const {data, error, loading} = useCurrencies();
+
   const Items = useMemo<JSX.Element[] | null>(
     () =>
-      options.map((item) => (
-        <option key={item} value={item}>
-          {item}
-        </option>
-      )),
-    [],
+      data
+        ? Object.keys(data).map((item) => (
+            <option key={item} value={item}>
+              {item}
+            </option>
+          ))
+        : null,
+    [data],
   );
 
   const onChange = useCallback<React.ChangeEventHandler<HTMLSelectElement>>(

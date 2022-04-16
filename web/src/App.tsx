@@ -5,10 +5,7 @@ import Converter from './pages/Converter';
 import Exchange from './pages/Exchange';
 import SideMenu from './components/SideMenu/SideMenu';
 import {Routes as RoutesList} from './navigation/routes';
-import useLatestCurrency from './hooks/useLatestCurrency';
-import Loading from './components/Loading';
 
-// TODO: handle error
 const App: React.FC = () => {
   const ExchangePage = useMemo<JSX.Element>(() => <Exchange />, []);
 
@@ -18,16 +15,6 @@ const App: React.FC = () => {
     () => <Navigate to={RoutesList.Exchange} />,
     [],
   );
-
-  const {isLoading, isError, data} = useLatestCurrency();
-
-  if (isLoading) {
-    <Loading />;
-  }
-
-  if (isError) {
-    return null;
-  }
 
   return (
     <Flex h="100vh" w="100vw">
