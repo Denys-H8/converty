@@ -31,7 +31,7 @@ const MenuHeader: React.FC<MenuHeaderProps> = ({onExpand, toggle}) => {
           onClick={onLogoClick}
           userSelect="none">
           <Logo />
-          <Text color="text.black" fontSize="2xl" fontWeight="bold">
+          <Text color="text.dark" fontSize="2xl" fontWeight="bold">
             {MenuLocales.AppName}
           </Text>
         </HStack>
