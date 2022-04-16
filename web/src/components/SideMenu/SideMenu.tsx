@@ -25,7 +25,7 @@ const SideMenu: React.FC = () => {
       py="42">
       <MenuHeader onExpand={onExpand} toggle={toggle} />
       <MenuItems toggle={toggle} />
-      {toggle && <CurrencySelect />}
+      <CurrencySelect />
     </VStack>
   );
 };
