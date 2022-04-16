@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {Flex, Heading} from '@chakra-ui/react';
 
 const Converter: React.FC = () => (
@@ -9,4 +9,4 @@ const Converter: React.FC = () => (
   </Flex>
 );
 
-export default Converter;
+export default memo(Converter);

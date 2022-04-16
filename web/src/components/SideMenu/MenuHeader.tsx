@@ -25,7 +25,11 @@ const MenuHeader: React.FC<MenuHeaderProps> = ({onExpand, toggle}) => {
   return (
     <HStack mb="28">
       {toggle ? (
-        <HStack cursor="pointer" mr={10} onClick={onLogoClick}>
+        <HStack
+          cursor="pointer"
+          mr={10}
+          onClick={onLogoClick}
+          userSelect="none">
           <Logo />
           <Text color="text.blue" fontSize="2xl">
             {MenuLocales.AppName}

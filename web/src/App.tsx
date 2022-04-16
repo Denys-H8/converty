@@ -5,6 +5,7 @@ import Converter from './pages/Converter';
 import Exchange from './pages/Exchange';
 import SideMenu from './components/SideMenu/SideMenu';
 import {Routes as RoutesList} from './navigation/routes';
+import './App.css';
 
 const App: React.FC = () => {
   const ExchangePage = useMemo<JSX.Element>(() => <Exchange />, []);

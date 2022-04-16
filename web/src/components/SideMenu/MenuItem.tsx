@@ -54,7 +54,11 @@ const MenuItem: React.FC<MenuItemProps> = ({variant, fullSize, onClick}) => {
       <Box mr={iconMargin}>{Icon}</Box>
 
       {fullSize && (
-        <Text color={textColor} fontSize={16} whiteSpace="nowrap">
+        <Text
+          color={textColor}
+          fontSize={16}
+          userSelect="none"
+          whiteSpace="nowrap">
           {text}
         </Text>
       )}
