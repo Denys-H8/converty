@@ -35,6 +35,8 @@ const MenuItem: React.FC<MenuItemProps> = ({variant, fullSize, onClick}) => {
 
   const iconMargin = fullSize ? 4 : 0;
 
+  const jc = fullSize ? 'flex-start' : 'center';
+
   return (
     <HStack
       alignItems="center"
@@ -42,6 +44,7 @@ const MenuItem: React.FC<MenuItemProps> = ({variant, fullSize, onClick}) => {
       bg="bg.white"
       borderRadius={10}
       cursor="pointer"
+      justifyContent={jc}
       onClick={onClick}
       pb="1.5"
       pl="6"
@@ -51,7 +54,7 @@ const MenuItem: React.FC<MenuItemProps> = ({variant, fullSize, onClick}) => {
       <Box mr={iconMargin}>{Icon}</Box>
 
       {fullSize && (
-        <Text color={textColor} fontSize={16}>
+        <Text color={textColor} fontSize={16} whiteSpace="nowrap">
           {text}
         </Text>
       )}

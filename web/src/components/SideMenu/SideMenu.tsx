@@ -1,32 +1,42 @@
-import React, {memo, useCallback, useState} from 'react';
-import {VStack} from '@chakra-ui/react';
+import React, {memo, useCallback, useMemo} from 'react';
+import {MotionStyle, Variants, motion, useCycle} from 'framer-motion';
 import MenuHeader from './MenuHeader';
 import MenuItems from './MenuItems';
 import CurrencySelect from './CurrencySelect';
 
-// TODO: add expand animation
+const menuStyle: MotionStyle = {
+  alignItems: 'center',
+  backgroundColor: '#F5F5F5',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'space-between',
+  paddingBottom: 42,
+  paddingTop: 42,
+};
+
 const SideMenu: React.FC = () => {
-  const [toggle, setToggle] = useState<boolean>(true);
+  const [variant, toggleVariant] = useCycle('open', 'closed');
 
   const onExpand = useCallback<() => void>(() => {
-    setToggle((prevValue) => !prevValue);
-  }, []);
+    toggleVariant();
+  }, [toggleVariant]);
 
-  const size = toggle ? 0.15 : 0.05;
+  const variants = useMemo<Variants>(
+    () => ({
+      closed: {paddingLeft: '0.8rem', paddingRight: '0.8rem', width: '8rem'},
+      open: {paddingLeft: '2rem', paddingRight: '2rem', width: '16rem'},
+    }),
+    [],
+  );
 
-  const px = toggle ? '42' : '6';
+  const toggle = variant === 'open';
 
   return (
-    <VStack
-      bg="bg.gray"
-      flex={size}
-      justifyContent="space-between"
-      px={px}
-      py="42">
+    <motion.div animate={variant} style={menuStyle} variants={variants}>
       <MenuHeader onExpand={onExpand} toggle={toggle} />
       <MenuItems toggle={toggle} />
       <CurrencySelect />
-    </VStack>
+    </motion.div>
   );
 };
 
