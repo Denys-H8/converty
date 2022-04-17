@@ -6,7 +6,7 @@ const CONVERT_API_URL = process.env.REACT_APP_CONVERT_API_URL;
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 export const useConvert = () => {
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const [error, setError] = useState<boolean>(false);
 

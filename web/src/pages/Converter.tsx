@@ -28,7 +28,7 @@ const SWAP_SYMBOL = '🔄';
 const Converter: React.FC = () => {
   const {state} = useContext(AppCtx);
 
-  const {convert, data, error, loading} = useConvert();
+  const {convert, data, loading} = useConvert();
 
   const [input, setInput] = useState<ConverterInput>({
     amount: 1,
@@ -78,7 +78,7 @@ const Converter: React.FC = () => {
     }));
   }, []);
 
-  const disabled = !input.amount || !input.from || !input.to;
+  const disabled = !input.amount || !input.from || !input.to || loading;
 
   return (
     <VStack flex={1} justifyContent="center">
@@ -122,8 +122,9 @@ const Converter: React.FC = () => {
           disabled={disabled}
           onClick={onClick}
           style={style.button}
-          variant="solid">
-          Convert
+          variant="solid"
+          width="7rem">
+          {loading ? '...' : 'Convert'}
         </Button>
 
         {data && (

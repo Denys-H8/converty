@@ -8,11 +8,10 @@ interface CurrencySelectProps {
   value?: string;
 }
 
-// TODO: handle error and loading
 const CurrencySelect: React.FC<CurrencySelectProps> = ({onChange, value}) => {
   const {state} = useContext(AppCtx);
 
-  const {data, error, loading} = useCurrencies();
+  const {data, loading} = useCurrencies();
 
   const Items = useMemo<JSX.Element[] | null>(
     () =>
@@ -25,6 +24,16 @@ const CurrencySelect: React.FC<CurrencySelectProps> = ({onChange, value}) => {
         : null,
     [data],
   );
+
+  if (loading) {
+    return (
+      <Select onChange={onChange} value={value ?? state.baseCurrency}>
+        <option key="loading" value="loading">
+          UAH
+        </option>
+      </Select>
+    );
+  }
 
   return (
     <Select onChange={onChange} value={value ?? state.baseCurrency}>

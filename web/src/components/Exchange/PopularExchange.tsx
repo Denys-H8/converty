@@ -1,12 +1,12 @@
 import {VStack} from '@chakra-ui/react';
 import React, {memo, useMemo} from 'react';
-import {usePopularExchange} from '../../hooks/usePopularExchange';
 import ExchangeCard from './ExchangeCard';
 
-// TODO: handle error and loading
-const PopularExchange = () => {
-  const {data, error, loading} = usePopularExchange();
+interface PopularExchangeProps {
+  data: any;
+}
 
+const PopularExchange: React.FC<PopularExchangeProps> = ({data}) => {
   const ExchangeCards = useMemo(
     () =>
       data?.results
