@@ -1,8 +1,9 @@
-import React, {memo, useCallback, useMemo} from 'react';
+import React, {memo, useCallback, useContext, useMemo} from 'react';
 import {MotionStyle, Variants, motion, useCycle} from 'framer-motion';
 import MenuHeader from './MenuHeader';
 import MenuItems from './MenuItems';
 import CurrencySelect from './CurrencySelect';
+import {AppCtx} from '../../contexts/currencyContext';
 
 const menuStyle: MotionStyle = {
   alignItems: 'center',
@@ -15,6 +16,8 @@ const menuStyle: MotionStyle = {
 };
 
 const SideMenu: React.FC = () => {
+  const {dispatch} = useContext(AppCtx);
+
   const [variant, toggleVariant] = useCycle('open', 'closed');
 
   const onExpand = useCallback<() => void>(() => {
@@ -29,13 +32,20 @@ const SideMenu: React.FC = () => {
     [],
   );
 
+  const onSelect = useCallback<React.ChangeEventHandler<HTMLSelectElement>>(
+    (event) => {
+      dispatch({payload: event.target.value, type: 'update'});
+    },
+    [dispatch],
+  );
+
   const toggle = variant === 'open';
 
   return (
     <motion.div animate={variant} style={menuStyle} variants={variants}>
       <MenuHeader onExpand={onExpand} toggle={toggle} />
       <MenuItems toggle={toggle} />
-      <CurrencySelect />
+      <CurrencySelect onChange={onSelect} />
     </motion.div>
   );
 };

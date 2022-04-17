@@ -1,11 +1,16 @@
 import {Select} from '@chakra-ui/react';
-import React, {memo, useCallback, useContext, useMemo} from 'react';
+import React, {memo, useContext, useMemo} from 'react';
 import {AppCtx} from '../../contexts/currencyContext';
 import {useCurrencies} from '../../hooks/useCurrencies';
 
+interface CurrencySelectProps {
+  onChange: React.ChangeEventHandler<HTMLSelectElement>;
+  value?: string;
+}
+
 // TODO: handle error and loading
-const CurrencySelect: React.FC = () => {
-  const {state, dispatch} = useContext(AppCtx);
+const CurrencySelect: React.FC<CurrencySelectProps> = ({onChange, value}) => {
+  const {state} = useContext(AppCtx);
 
   const {data, error, loading} = useCurrencies();
 
@@ -21,15 +26,8 @@ const CurrencySelect: React.FC = () => {
     [data],
   );
 
-  const onChange = useCallback<React.ChangeEventHandler<HTMLSelectElement>>(
-    (event) => {
-      dispatch({payload: event.target.value, type: 'update'});
-    },
-    [dispatch],
-  );
-
   return (
-    <Select onChange={onChange} value={state.baseCurrency}>
+    <Select onChange={onChange} value={value ?? state.baseCurrency}>
       {Items}
     </Select>
   );
