@@ -1,8 +1,9 @@
 import React, {memo, useContext, useMemo} from 'react';
-import {Flex, VStack} from '@chakra-ui/react';
+import {Flex, Heading, VStack} from '@chakra-ui/react';
 import {useExchange} from '../hooks/useExchange';
 import ExchangeCard from '../components/Exchange/ExchangeCard';
 import {AppCtx} from '../contexts/currencyContext';
+import PopularExchange from '../components/Exchange/PopularExchange';
 
 // TODO: handle error and loading
 const Exchange: React.FC = () => {
@@ -27,12 +28,23 @@ const Exchange: React.FC = () => {
 
   return (
     <Flex flex={1} justifyContent="space-around" p="50px">
-      <VStack overflowY="scroll" p="6px" width="20rem">
-        {ExchangeCards}
+      <VStack alignItems="center">
+        <Heading as="h4" fontSize="1.5rem" mb="0.5rem">
+          Available Rates 💸
+        </Heading>
+        <VStack overflowY="scroll" p="6px" width="20rem">
+          {ExchangeCards}
+        </VStack>
       </VStack>
 
-      <VStack overflowY="scroll" p="6px" width="20rem">
-        {ExchangeCards}
+      <VStack alignItems="center">
+        <Heading as="h4" fontSize="1.5rem" mb="0.5rem">
+          Hot Rates 🔥
+        </Heading>
+
+        <VStack overflowY="scroll" p="6px" width="20rem">
+          <PopularExchange />
+        </VStack>
       </VStack>
     </Flex>
   );
