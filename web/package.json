@@ -5,7 +5,7 @@
   "name": "web",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Denys-H8.github.io",
+  "homepage": "https://Denys-H8.github.io/converty/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
