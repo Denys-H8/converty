@@ -1,5 +1,5 @@
 import React, {memo, useMemo} from 'react';
-import {BrowserRouter, Navigate, Route, Routes} from 'react-router-dom';
+import {HashRouter, Navigate, Route, Routes} from 'react-router-dom';
 import {Flex} from '@chakra-ui/react';
 import Converter from './pages/Converter';
 import Exchange from './pages/Exchange';
@@ -19,7 +19,7 @@ const App: React.FC = () => {
 
   return (
     <Flex h="100vh" w="100vw">
-      <BrowserRouter>
+      <HashRouter>
         <SideMenu />
 
         <Routes>
@@ -27,7 +27,7 @@ const App: React.FC = () => {
           <Route element={ConverterPage} path={RoutesList.Converter} />
           <Route element={InitialRedirect} path={RoutesList.Any} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </Flex>
   );
 };
