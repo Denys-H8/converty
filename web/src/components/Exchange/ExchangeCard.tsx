@@ -33,11 +33,11 @@ const ExchangeCard: React.FC<ExchangeCardProps> = ({
     () => (
       <HStack position="relative">
         <Box
-          backgroundImage={`url(/assets/${baseCurrency}.png)`}
+          backgroundImage={`${process.env.PUBLIC_URL}/assets/${baseCurrency}.png`}
           style={baseFlagStyle}
         />
         <Box
-          backgroundImage={`url(/assets/${toCurrency}.png)`}
+          backgroundImage={`${process.env.PUBLIC_URL}/assets/${toCurrency}.png`}
           style={toFlagStyle}
         />
       </HStack>
