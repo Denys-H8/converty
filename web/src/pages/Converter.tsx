@@ -82,7 +82,7 @@ const Converter: React.FC = () => {
 
   return (
     <VStack flex={1} justifyContent="center">
-      <VStack>
+      <VStack style={style.converterContainer}>
         <HStack>
           <VStack alignItems="flex-start" style={style.input}>
             <Text fontWeight="medium">Amount</Text>
@@ -151,18 +151,23 @@ const style: Record<string, React.CSSProperties> = {
   button: {
     marginTop: '2rem',
   },
+  converterContainer: {
+    borderRadius: '10px',
+    boxShadow: '0px 1px 4px 0px #00000040',
+    paddingBottom: '2rem',
+    paddingLeft: '3rem',
+    paddingRight: '3rem',
+    paddingTop: '2rem',
+  },
   input: {
     marginRight: '2rem',
   },
   result: {
     alignItems: 'center',
     alignSelf: 'stretch',
-    borderRadius: '10px',
-    boxShadow: '0px 1px 4px 0px #00000040',
     justifyContent: 'center',
     marginTop: '2rem',
     paddingBottom: '1.5rem',
-    paddingTop: '1.5rem',
   },
 };
 
